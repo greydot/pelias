@@ -11,6 +11,12 @@ impl ToJSON for bool {
   }
 }
 
+impl ToJSON for u8 {
+  fn to_json(self: &Self) -> JsonValue {
+    JsonValue::Number(<Number as From<u8>>::from(*self))
+  }
+}
+
 impl ToJSON for f32 {
   fn to_json(self: &Self) -> JsonValue {
     JsonValue::Number(<Number as From<f32>>::from(*self))
